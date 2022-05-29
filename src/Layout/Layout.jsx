@@ -6,7 +6,16 @@ import Footer from "../Components/Footer";
 
 const Layout = () => {
     return (
-        <Stack alignItems={"center"} p={6} spacing={6}>
+        <Stack
+            alignItems="center"
+            justifyContent="center"
+            left="0"
+            margin="auto"
+            maxW={"600px"}
+            p={6}
+            position="absolute"
+            right="0"
+        >
             <Header />
             <Coment />
             <Footer />
