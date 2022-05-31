@@ -1,6 +1,6 @@
 import { Stack } from "@chakra-ui/react";
 
-import Coment from "../Components/Coment";
+import MakeComents from "../Components/MakeComents";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 
@@ -15,9 +15,10 @@ const Layout = () => {
             p={6}
             position="absolute"
             right="0"
+            spacing={12}
         >
             <Header />
-            <Coment />
+            <MakeComents />
             <Footer />
         </Stack>
     );

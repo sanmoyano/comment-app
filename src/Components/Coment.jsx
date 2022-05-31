@@ -1,44 +1,43 @@
 import {
-    Stack,
-    SkeletonCircle,
     Box,
     Button,
-    Textarea,
+    Skeleton,
+    SkeletonCircle,
+    Stack,
+    Text,
     useColorModeValue,
-    FormControl,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-const Coment = () => {
+import MakeReply from "./MakeReply";
+
+const Coment = ({ coment }) => {
     const bgColor = useColorModeValue("gray.100", "gray.800");
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <>
-            <Stack
-                alignItems={"flex-start"}
-                bgColor={bgColor}
-                borderRadius={"lg"}
-                borderWidth={"1px"}
-                direction={"row"}
-                justifyContent={"space-between"}
-                p={6}
-                spacing={6}
-                w={"100%"}
-            >
-                <Box>
-                    <SkeletonCircle size="10" />
-                </Box>
-                <FormControl as="form">
-                    <Stack
-                        alignItems={"flex-start"}
-                        direction={{ base: "column", md: "row" }}
-                        spacing={6}
-                        w={"100%"}
-                    >
-                        <Textarea name="coment" placeholder="Add a comment..." type="text" />
-                        <Button type="submit">Send</Button>
+            <Stack bgColor={bgColor} borderRadius={"lg"} borderWidth={"1px"} p={6} spacing={6}>
+                <Stack direction={"row"} justifyContent="space-between">
+                    <Stack direction={"row"}>
+                        <Box>
+                            <SkeletonCircle size="10" />
+                        </Box>
+                        <Skeleton>
+                            <div>usuario nombre</div>
+                        </Skeleton>
                     </Stack>
-                </FormControl>
+                    <Button onClick={handleClick}>{isOpen ? "Hide" : "Reply"}</Button>
+                </Stack>
+                <Text>{coment}</Text>
+            </Stack>
+            <Stack>
+                <MakeReply open={isOpen} />
             </Stack>
         </>
     );
