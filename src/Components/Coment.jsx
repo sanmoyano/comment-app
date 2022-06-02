@@ -6,6 +6,8 @@ import {
     Stack,
     Text,
     useColorModeValue,
+    useDisclosure,
+    ScaleFade,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
@@ -36,9 +38,11 @@ const Coment = ({ coment }) => {
                 </Stack>
                 <Text>{coment}</Text>
             </Stack>
-            <Stack>
-                <MakeReply open={isOpen} />
-            </Stack>
+            <ScaleFade in={isOpen} initialScale={0.5} unmountOnExit={true}>
+                <Stack>
+                    <MakeReply open={isOpen} />
+                </Stack>
+            </ScaleFade>
         </>
     );
 };

@@ -5,7 +5,7 @@ import Coment from "./Coment";
 
 const ComentList = ({ coments }) => {
     return (
-        <Stack>
+        <Stack width={"100%"}>
             {coments.map((coment) => (
                 <Coment key={coment.id} coment={coment.input} />
             ))}
